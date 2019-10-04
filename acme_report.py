@@ -9,6 +9,7 @@ NOUNS = ['Anvil', 'Catapult', 'Disguise', 'Mousetrap', 'Cannon']
 
 
 def generate_products(num_products=30):
+    """ Generate a list of ACME products """
     products = []
     for i in range(num_products):
         name = ADJECTIVES[randint(0, 4)] + ' ' + NOUNS[randint(0, 4)]
@@ -19,6 +20,7 @@ def generate_products(num_products=30):
     return products
 
 def inventory_report(products):
+    """ Print a report for a list of products """
     names = set(list(i.name for i in products))
     avg_price = sum(i.price for i in products) / len(products)
     avg_weight = sum(i.weight for i in products) / len(products)
