@@ -266,7 +266,7 @@ career here, you'll have to answer the following:
   when others do the same for your code?
   - Good code is readable and sensible. A lot of time can be saved, in theory,
   by making code easy to maintain before shipping it (failure to do this results
-  in 'technical debt'. A code review should inform the code author of readability
+  in 'technical debt'). A code review should inform the code author of readability
   issues, like inconsistency in naming conventions or style
   violations. It should also point out parts of the code that aren't idiomatic,
   and identify any ways the code might fail in production. I try to review code
