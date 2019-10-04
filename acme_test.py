@@ -2,7 +2,7 @@
 
 import unittest
 from acme import Product
-from acme_report import generate_products, ADJECTIVES, NOUNS
+from acme_report import generate_products, inventory_report, ADJECTIVES, NOUNS
 
 
 class AcmeProductTests(unittest.TestCase):
@@ -41,6 +41,19 @@ class AcmeReportTests(unittest.TestCase):
             self.assertIn(i, ADJECTIVES)
         for i in nouns:
             self.assertIn(i, NOUNS)
+
+    def test_printout(self):
+        """ Test that inventory_report prints correctly """
+        import sys
+        from io import StringIO
+        from unittest.mock import patch
+
+        with patch('sys.stdout', new=StringIO()) as output:
+            items = generate_products()
+            inventory_report(items)
+            self.assertIn("ACME CORPORATION OFFICIAL INVENTORY REPORT",
+                            output.getvalue().strip())
+
 
 if __name__ == '__main__':
     unittest.main()
